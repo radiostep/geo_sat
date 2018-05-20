@@ -14,20 +14,20 @@ Player = {
         // Camera
         let aspect = container.offsetWidth / container.offsetHeight;
         this.camera = new THREE.PerspectiveCamera(30.0, aspect, 1, 1000);
-        this.camera.position.set(50,30,30);
+        this.camera.position.set(10,5,5);
         this.scene.add(this.camera);
 
         // Lights
         let light = new THREE.AmbientLight();
         this.scene.add(light);
 
-        let pointLight = new THREE.PointLight(0xffffff, 1, 100);
-        pointLight.position.set(15, 15, 15);
-        this.scene.add(pointLight);
+        // let pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        // pointLight.position.set(15, 15, 15);
+        // this.scene.add(pointLight);
 
-        // Light helper
-        let pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
-        this.scene.add(pointLightHelper);
+        // // Light helper
+        // let pointLightHelper = new THREE.PointLightHelper(pointLight, 2);
+        // this.scene.add(pointLightHelper);
 
 
         this.renderer = new THREE.WebGLRenderer();
@@ -81,14 +81,14 @@ Player = {
                 new THREE.MeshPhongMaterial({map: texture, specular: 0xffffff, shininess: 25}),
                 new THREE.MeshPhongMaterial({map: texture2, specular: 0xffffff, shininess: 25})
             ];
-            console.log(mesh.material[1].map);
+            // console.log(mesh.material[1].map);
         });
 
         this.count = 0;
         this.textureAnimator = function(){
-            if (this.scene.children[4] && imagesE[(this.count).toFixed()]) {
-                this.scene.children[4].material[0].map.image = imagesE[(this.count).toFixed()];
-                this.scene.children[4].material[1].map.image = imagesW[(this.count).toFixed()];
+            if (this.scene.children[2] && imagesE[(this.count).toFixed()]) {
+                this.scene.children[2].material[0].map.image = imagesE[(this.count).toFixed()];
+                this.scene.children[2].material[1].map.image = imagesW[(this.count).toFixed()];
                 texture.needsUpdate = true;
                 texture2.needsUpdate = true;
                 this.count+=0.1;
